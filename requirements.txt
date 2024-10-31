@@ -139,7 +139,6 @@ python-whois==0.9.4
 pytweening==1.0.7
 pytz==2023.3.post1
 pywhatkit==5.4
-pywin32==306
 PyYAML==3.13
 pyzmq==26.2.0
 random2==1.0.1
