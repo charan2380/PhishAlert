@@ -1,0 +1,22 @@
+# Environment and sensitive files
+.env
+.google-cookie
+
+# SQLite database
+phishshield.db
+
+# Compiled bytecode
+__pycache__/
+*.pyc
+
+# Cache and OS-generated files
+.cache/
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhishAlert</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='bell.ico') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="/static/bellalert.svg" alt="Logo" width="64" height="64" class="d-inline-block align-text-top" />
+                <span class="ms-2" style="font-size: 1.8rem;">PhishAlert</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="/" class="btn btn-outline-light me-2 nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/how_it_works" class="btn btn-outline-light me-2 nav-link">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/faq" class="btn btn-outline-light me-2 nav-link">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="btn btn-outline-light me-2 nav-link">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="btn btn-outline-light nav-link">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="form-container shadow-lg p-5 bg-light rounded">
+        <h2 class="text-center mb-4">PHISHING DETECTION</h2>
+        <form id="urlForm" action="/" method="post" onsubmit="showLoadingSpinner()" class="d-flex flex-column align-items-center">
+            <div class="input-group mb-3 w-75">
+                <input type="url" class="form-control shadow-sm" id="basic-url" name="url"
+                    aria-describedby="basic-addon3" placeholder="Enter the URL to Check" required />
+            </div>
+            <!-- reCAPTCHA box -->
+            <div class="g-recaptcha mb-3" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+            <div class="d-grid gap-2 d-md-block text-center">
+                <button type="submit" class="btn btn-gradient-primary me-2">CHECK</button>
+                <button type="button" class="btn btn-gradient-secondary" onclick="resetInput()">RESET</button>
+            </div>
+        </form>
+    
+        <!-- Loading spinner -->
+        <div id="loadingSpinner" class="text-center" style="display:none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="text-dark mt-2">Processing, please wait...</p>
+        </div>
+    
+        <div class="result text-center mt-4">
+            {% if url and result %}
+            <div class="url-container">
+                <p class="text-dark">
+                    <span class="label">URL:</span>
+                    <a href="{{ url }}" class="url" target="_blank">{{ url }}</a>
+                </p>
+            </div>
+            <p class="p-result">
+                {% if result == 'Phishing' %}
+                <span class="result-phishing">Warning: This URL may be UNSAFE. Exercise caution.</span>
+                {% else %}
+                <span class="result-legitimate">Proceed confidently: Our system verifies this URL as secure.</span>
+                {% endif %}
+            </p>
+    
+            <!-- New Section to Display Confidence Scores -->
+            <!--<div class="confidence-scores">
+                <p><strong>Legitimate Confidence Score:</strong> {{ confidence_legitimate_feature }}%</p>
+            </div>-->
+    
+            <div class="final-prediction">
+                <p><strong>Final Prediction Result:</strong> {{ result }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+
+    <footer class="footer mt-auto py-3 bg-gradient-dark">
+        <div class="container text-center text-light">
+            <small>Copyright &copy; PhishAlert. All Rights Reserved</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

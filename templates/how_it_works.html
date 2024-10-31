@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How It Works - PhishShield</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="/static/bellalert.svg" alt="Logo" width="64" height="64" class="d-inline-block align-text-top" />
+                <span class="ms-2" style="font-size: 1.8rem;">PhishAlert</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="/" class="btn btn-outline-light me-2 nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/how_it_works" class="btn btn-outline-light me-2 nav-link active">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/faq" class="btn btn-outline-light me-2 nav-link">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact" class="btn btn-outline-light me-2 nav-link">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="btn btn-outline-light nav-link">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5" style="margin-top: 80px;">
+        <h1 class="text-center">How PhishAlert Works</h1>
+        <p class="text-center">PhishAlert protects you by identifying phishing websites using cutting-edge machine learning technology. Here’s a step-by-step breakdown of the process:</p>
+
+        <div class="steps-container">
+            <div class="step">
+                <span class="step-number">1</span>
+                <h2>URL Submission</h2>
+                <p>You enter the URL of the website that you wish to check for phishing. PhishAlert scans this URL for various indicators of phishing.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <h2>Feature Extraction</h2>
+                <p>PhishAlert analyzes key features such as domain name, SSL certificate status, URL length, and other relevant attributes to evaluate the risk.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <h2>Machine Learning Analysis</h2>
+                <p>Our advanced machine learning model, trained on thousands of phishing and legitimate websites, processes the extracted features and predicts the likelihood of the site being a phishing attempt.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <h2>Results Display</h2>
+                <p>Based on the analysis, PhishAlert provides a detailed result, indicating whether the site is safe or a phishing attempt.</p>
+            </div>
+        </div>
+
+        <p class="text-center">With PhishAlert, you can browse the web with peace of mind, knowing you are protected from malicious sites!</p>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-gradient-dark">
+        <div class="container text-center text-light">
+            <small>Copyright &copy; PhishAlert. All Rights Reserved</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
