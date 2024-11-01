@@ -124,7 +124,7 @@ def detect_phishing():
                 confidence_phishing_feature=confidence_phishing_feature,
                 confidence_legitimate_feature=confidence_legitimate_feature
             )
-            cache.set(url, cached_render, timeout=3600)
+            cache.set(url, cached_render, timeout=300)
 
             # Returning the cached render
             return cached_render
